@@ -1,13 +1,7 @@
-import random
-def main():
-  #print("Keep it logically awesome.")
-
-  f = open("quotes.txt")
-  quotes = f.readlines()
-  f.close()
-  last = 13
-  rnd = random.randint(0, last)
-  print(quotes[rnd])
-
-if __name__== "__main__":
-  main()
+import fileinput
+file_name = 'quotes.txt'
+for line in fileinput.FileInput(file_name, inplace=1):
+  if 'purity' in line:
+    line = line.rstrip()
+    line = line.replace(line, line+' and simplicity' + '\n')
+  print (line)
